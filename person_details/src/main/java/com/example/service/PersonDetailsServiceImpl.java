@@ -23,6 +23,21 @@ public class PersonDetailsServiceImpl implements IPersonDetailsService {
 	Integer iInteger = Integer.valueOf(personId);
 		return iInteger;
 	}
+
+	@Override
+	public Person updatePersonDetails(Integer id,Person personDetails) {
+		int person_id = id.intValue();
+		Person person = personRepository.findByPersonId(person_id);
+		       if(personDetails.getCity() != null && personDetails.getCity().length() >0)
+		       person.setCity(personDetails.getCity());  
+		       if(personDetails.getpersonName() != null && personDetails.getpersonName().length() >0 )
+		    	   person.setpersonName(personDetails.getpersonName());   
+		       if(personDetails.getjobType() != null && personDetails.getjobType().length() >0)
+                 person.setjobType(personDetails.getjobType());
+		       Person personnew =	personRepository.save(person);		    		  		   
+		       
+		return personnew;
+	}
 	
 	
 
