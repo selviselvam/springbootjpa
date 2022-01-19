@@ -32,8 +32,8 @@ public class PersonDetailsServiceImpl implements IPersonDetailsService {
 		       person.setCity(personDetails.getCity());  
 		       if(personDetails.getpersonName() != null && personDetails.getpersonName().length() >0 )
 		    	   person.setpersonName(personDetails.getpersonName());   
-		       if(personDetails.getjobType() != null && personDetails.getjobType().length() >0)
-                 person.setjobType(personDetails.getjobType());
+		      if( personDetails.getjobDetailId() > 0)
+		    	  person.setjobDetailId(personDetails.getjobDetailId());
 		       Person personnew =	personRepository.save(person);		    		  		   
 		       
 		return personnew;
