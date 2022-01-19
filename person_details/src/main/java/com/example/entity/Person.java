@@ -20,8 +20,8 @@ public class Person {
 	private String personName;
 	@Column(name = "city")
 	private String city;
-	@Column(name="job_type")
-	private String jobType;
+	@Column(name="job_detail_id")
+	private int jobDetailId;
 	public int getPersonId() {
 		return personId;
 	}
@@ -30,6 +30,12 @@ public class Person {
 	}
 	public String getpersonName() {
 		return personName;
+	}
+	public int getjobDetailId() {
+		return jobDetailId;
+	}
+	public void setjobDetailId(int jobDetailId) {
+		this.jobDetailId = jobDetailId;
 	}
 	public void setpersonName(String personName) {
 		this.personName = personName;
@@ -40,16 +46,11 @@ public class Person {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getjobType() {
-		return jobType;
-	}
-	public void setjobType(String jobType) {
-		this.jobType = jobType;
-	}
+	
 	@Override
 	public String toString() {
-		return "Person [personId=" + personId + ", personName=" + personName + ", city=" + city + ", jobType=" + jobType + "]";
-	}
-	
+		return "Person [personId=" + personId + ", personName=" + personName + ", city=" + city + 
+				 ", jobDetailId=" + jobDetailId + "]";
+	}	
 	
 }
