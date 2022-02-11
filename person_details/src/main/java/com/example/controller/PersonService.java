@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.bean.CompleteDetails;
 import com.example.entity.Person;
 import com.example.service.IPersonDetailsService;
 
 @RestController
+@RequestMapping("/persondetails")
 public class PersonService {
 	@Autowired
 	IPersonDetailsService IpersonDetailsService;
@@ -36,5 +38,10 @@ public class PersonService {
     	Person personUpdated = IpersonDetailsService.updatePersonDetails(personId, person);
     	return ResponseEntity.ok(personUpdated);
     	
+    }
+    @RequestMapping(value="/getCompleteDetails",method =RequestMethod.GET)
+    public ResponseEntity<CompleteDetails> getCompleteDetails(@RequestParam("personId") int personId){
+    	CompleteDetails completeDetails = IpersonDetailsService.getCompleteDetails(personId) ;
+    	return ResponseEntity.ok(completeDetails);
     }
 }
